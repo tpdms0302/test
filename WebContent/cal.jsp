@@ -18,7 +18,7 @@
 
 			<tr>
 				<td><input type="button" value=" AC " onclick="del()"
-					class="btn" id="width"> <input type="button" value=" Back "
+					class="btn" id="colbtn"> <input type="button" value=" Back "
 					onclick="back()" class="btn"> <input type="button"
 					value=" / " onclick="val('/')" class="btn"></td>
 			</tr>
@@ -49,7 +49,7 @@
 
 			<tr>
 				<td><input type="button" value=" 0 " onclick="val('0')"
-					class="btn" id="width"> <input type="button" value=" . "
+					class="btn" id="colbtn"> <input type="button" value=" . "
 					onclick="val('.')" class="btn"> <input type="button"
 					value=" = " onclick="calculate()" class="btn"></td>
 			</tr>
