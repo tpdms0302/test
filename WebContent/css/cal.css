@@ -1,0 +1,27 @@
+@charset "UTF-8";
+#cal {
+	margin-top: 30px;
+	margin-left: 30px;
+}
+
+.btn {
+	font-weight: bold;
+	font-size: 10pt;
+	background-color: white;
+	padding-top: 3px;
+	width: 80px;
+	height: 50px;
+}
+
+#result {
+	height: 40px;
+	border: none
+}
+
+#table {
+	border: 1px solid;
+}
+
+#width {
+	width: 166px;
+}
