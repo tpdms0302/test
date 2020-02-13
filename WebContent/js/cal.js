@@ -10,7 +10,8 @@
 			alert('계산할 내용이 없습니다');
 			return;
 		}
-		result.value = eval(result.value);
+		result.value =new Function('"use strict";return (' + result.value + ')')();
+
 	}
 
 	/* 텍스트 값을 초기화  해주는 함수*/
