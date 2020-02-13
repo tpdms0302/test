@@ -5,10 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>계산기</title>
-<link rel="stylesheet" href="/test/css/cal.css" type="text/css">
+<link rel="stylesheet" href="./css/cal.css" type="text/css">
 </head>
 <body>
-	<script type="text/javascript" src="/test/js/cal.js"></script>
+	<script type="text/javascript" src="./js/cal.js"></script>
 	<form id="cal">
 		<table border="0" cellspacing="5" bgcolor="#c6e2ff" id="table">
 			<tr>
