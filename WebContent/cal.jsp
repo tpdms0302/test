@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8" >
-
 <title>계산기</title>
 <link rel="stylesheet" href="./css/cal.css" type="text/css">
-<script>
+<script type="text/javascript">
 window.onload=function(){
 	var temp = document.getElementById('result');
 	var result=temp.value;
@@ -64,7 +63,7 @@ window.onload=function(){
 					
 					
 					<input type="submit"
-					value=" = "  onclick="calculate()" class="btn">
+					value=" = "  onclick="calculate()"class="btn">
 					
 					</td>
 			</tr>

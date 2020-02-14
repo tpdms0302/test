@@ -2,6 +2,7 @@
  * 
  */
 
+/*var result=getParameter.result;*/
 
 
 	/* 계산 해주는 함수 */
@@ -30,10 +31,8 @@
 	function val(num)
 
 	{
-
-		/*num.setAttribute('class','on');*/
 		/* result = result*1 + num; */
-		 result= result + num;
+		   result.value = result.value + num; 
 
 	}
 
