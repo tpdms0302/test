@@ -3,17 +3,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" >
+
 <title>계산기</title>
 <link rel="stylesheet" href="./css/cal.css" type="text/css">
+<script>
+window.onload=function(){
+	var temp = document.getElementById('result');
+	var result=temp.value;
+
+}
+
+</script>
 </head>
+
 <body>
 	<script type="text/javascript" src="./js/cal.js"></script>
-	<form id="cal">
+	<form id="cal"  method="post" action="cal2.jsp">
 		<table border="0" cellspacing="5" bgcolor="#c6e2ff" id="table">
 			<tr>
 				<td><input type="text" name="screen" id="result" size="48"
-					value=""></td>
+					value="" ></td>
 			</tr>
 
 			<tr>
@@ -50,8 +60,13 @@
 			<tr>
 				<td><input type="button" value=" 0 " onclick="val('0')"
 					class="btn" id="colbtn"> <input type="button" value=" . "
-					onclick="val('.')" class="btn"> <input type="button"
-					value=" = " onclick="calculate()" class="btn"></td>
+					onclick="val('.')" class="btn"> 
+					
+					
+					<input type="submit"
+					value=" = "  onclick="calculate()" class="btn">
+					
+					</td>
 			</tr>
 
 

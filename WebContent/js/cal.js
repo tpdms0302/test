@@ -3,6 +3,7 @@
  */
 
 
+
 	/* 계산 해주는 함수 */
 	function calculate() {
 		if (result.value == '') {
@@ -30,7 +31,9 @@
 
 	{
 
-		 result.value = result.value + num; 
+		/*num.setAttribute('class','on');*/
+		/* result = result*1 + num; */
+		 result= result + num;
 
 	}
 
