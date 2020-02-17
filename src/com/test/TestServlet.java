@@ -8,6 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -25,20 +28,53 @@ public class TestServlet extends HttpServlet {
 		res.setCharacterEncoding("utf-8");
 
 		String result = req.getParameter("result");
-	     ScriptEngineManager mgr = new ScriptEngineManager();
-	     ScriptEngine engine = mgr.getEngineByName("JavaScript");
-		
-		
-		PrintWriter writer = res.getWriter();
+		String left = null;
+		String sep = null;
+		String right = null;
+		int result1;
+	
 
-		try {
-			writer.println(engine.eval(result));
-		} catch (ScriptException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		String[] spl = { "*", "+", "-", "/" };
+
+		System.out.println("result:"+result);
+
+		for (int i = 0; i < spl.length; i++) {
+			int pos = result.indexOf(spl[i]);
+
+			if(pos != -1) {
+				left = result.substring(0,pos);
+				sep = result.substring(pos,pos+1);
+				right = result.substring(pos+1);
+				break;
+
+			}
+
 		}
 
+		int left1=Integer.parseInt(left);
+		int right1=Integer.parseInt(right);
+		
+		  if(sep.equals("*")) {
+		    result1=left1*right1;
+		      
+		  }else if(sep.equals("+")) {
+			  result1=left1+right1;
+			  
+		  }else if(sep.equals("-")) {
+			  result1=left1-right1;
+			  
+		  }else {
+			  result1=left1/right1;
+		  }
+		
+		  
+		  
+		System.out.println("left:"+left+" sep:"+sep+" right"+right);
+
+		PrintWriter writer = res.getWriter();
+
+		writer.println(result1);
+
 	}
-	
 
 }

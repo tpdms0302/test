@@ -1,65 +1,76 @@
 
-  
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8" >
+<meta charset="UTF-8">
 <title>계산기</title>
 <link rel="stylesheet" href="./css/cal.css" type="text/css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
-$(function(){
-	//
-	// $('#cal').submit(function(){
-	//
-	// 	var result =  $("#result").val();
-	// 	window.open("cal2.jsp?result=" + result.value, "",
-	// 	"width=500,height=500");
-	//
-	// 	return false;
-	// });
-	
-	$("#btn_sub").click(function(){
-		doItem();
-		
-	})
- });
-function doItem() {
-	var result = $('#result').val();
-	
-	$.ajax({
-		url				: "./CalcServlet.do",
-		
-		data:{
-			'result':result
-		},
-		success: function(data) {
-			$("#result").val(data);
-		},
-		error: function(error) {
-			//	deferred.reject(error);
-		}
+	$(function() {
+		//
+		// $('#cal').submit(function(){
+		//
+		// 	var result =  $("#result").val();
+		// 	window.open("cal2.jsp?result=" + result.value, "",
+		// 	"width=500,height=500");
+		//
+		// 	return false;
+		// });
+
+		$("#btn_sub").click(function() {
+			doItem();
+
+		})
 	});
-}
+	function doItem() {
+
+		var result = $('#result').val();
+
+		//return;
+		$.ajax({
+			url : "./CalcServlet.do",
+			data : {
+				'result' : encodeURIComponent(result)
+
+			},
+			type : 'POST',
+
+			success : function(data) {
+
+				$("#result").val(data);
+
+			},
+			error : function(error) {
+
+				//	deferred.reject(error);
+
+			}
+
+		});
+
+	}
 </script>
 </head>
 
 <body>
 	<script type="text/javascript" src="./js/cal.js"></script>
 	<form id="cal">
-		<table border="0" cellspacing="5" bgcolor="#c6e2ff" id="table">
+		<table bdorder="0" cellspacing="5" bgcolor="#c6e2ff" id="table">
 			<tr>
 				<td><input type="text" name="screen" id="result" size="48"
-					value="" ></td>
+					value=""></td>
 			</tr>
 
 			<tr>
 				<td><input type="button" value=" AC " onclick="del()"
-					class="btn" id="colbtn"> <input type="button" value=" Back "
-					onclick="back()" class="btn"> <input type="button"
-					value=" / " onclick="val('/')" class="btn"></td>
+					class="btn" id="colbtn"> <input type="button"
+					value=" Back " onclick="back()" class="btn"> <input
+					type="button" value=" / " onclick="val('/')" class="btn"></td>
 			</tr>
 
 			<tr>
@@ -88,16 +99,9 @@ function doItem() {
 
 			<tr>
 				<td><input type="button" value=" 0 " onclick="val('0')"
-					class="btn" id="colbtn">
-
-					<input type="button" value=" . "
-					onclick="val('.')" class="btn"> 
-					
-					
-					<input type="button"
-					value=" = "  class="btn" id="btn_sub">
-					
-					</td>
+					class="btn" id="colbtn"> <input type="button" value=" . "
+					onclick="val('.')" class="btn"> <input type="button"
+					value=" = " class="btn" id="btn_sub"></td>
 			</tr>
 
 
