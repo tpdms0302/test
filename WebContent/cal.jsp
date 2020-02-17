@@ -28,6 +28,7 @@ $(function(){
  });
 function doItem() {
 	var result = $('#result').val();
+	
 	$.ajax({
 		url				: "./CalcServlet.do",
 		
