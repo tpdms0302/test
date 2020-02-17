@@ -30,8 +30,7 @@ function doItem() {
 	var result = $('#result').val();
 	$.ajax({
 		url				: "./CalcServlet.do",
-		//	dataType	: h,
-		/* type:'POST', */
+		
 		data:{
 			'result':result
 		},
