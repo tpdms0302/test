@@ -16,15 +16,11 @@
 	window.onload = function() {
 
 		var para = document.location.href.split("=");
-		
 		if (para[1] == '') {
-			/* document.getElementById('result').value = '계산할 내용이 없습니다'; */
 			alert('계산할 내용이 없습니다');
 			return;
 		}
-		
 		var result=new Function('"use strict";return (' + para[1]+ ')')();
-
 		$("#result").val(result);
 
 	}

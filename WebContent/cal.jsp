@@ -1,3 +1,5 @@
+
+  
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,25 +10,44 @@
 <link rel="stylesheet" href="./css/cal.css" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
-
-var result = document.getElementById('result');
- 
 $(function(){
-	$('#cal').submit(function(){
+	//
+	// $('#cal').submit(function(){
+	//
+	// 	var result =  $("#result").val();
+	// 	window.open("cal2.jsp?result=" + result.value, "",
+	// 	"width=500,height=500");
+	//
+	// 	return false;
+	// });
+	
+	$("#btn_sub").click(function(){
+		doItem();
 		
-		var result = this.result;
-		window.open("cal2.jsp?result=" + result.value, "",
-		"width=500,height=500");
-		
-		return false;
-	});
+	})
  });
+function doItem() {
+	var result = $('#result').val();
+	$.ajax({
+		url				: "./CalcServlet.do",
+		//	dataType	: h,
+		/* type:'POST', */
+		data:{
+			'result':result
+		},
+		success: function(data) {
+			$("#result").val(data);
+		},
+		error: function(error) {
+			//	deferred.reject(error);
+		}
+	});
+}
 </script>
 </head>
 
 <body>
 	<script type="text/javascript" src="./js/cal.js"></script>
-	
 	<form id="cal">
 		<table border="0" cellspacing="5" bgcolor="#c6e2ff" id="table">
 			<tr>
@@ -67,11 +88,13 @@ $(function(){
 
 			<tr>
 				<td><input type="button" value=" 0 " onclick="val('0')"
-					class="btn" id="colbtn"> <input type="button" value=" . "
+					class="btn" id="colbtn">
+
+					<input type="button" value=" . "
 					onclick="val('.')" class="btn"> 
 					
 					
-					<input type="submit"
+					<input type="button"
 					value=" = "  class="btn" id="btn_sub">
 					
 					</td>
