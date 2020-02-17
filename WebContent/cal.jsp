@@ -11,22 +11,40 @@
 
 $(function(){
 
+	//
+	// $('#cal').submit(function(){
+	//
+	// 	var result =  $("#result").val();
+	// 	window.open("cal2.jsp?result=" + result.value, "",
+	// 	"width=500,height=500");
+	//
+	// 	return false;
+	// });
 
-	$('#cal').submit(function(){
-		
-		var result =  $("#result").val();
-		window.open("cal2.jsp?result=" + result.value, "",
-		"width=500,height=500");
-		
-		return false;
-	});
+	$("#colbtn").click(function(){
+		doItem();
+	})
+
+
  });
+
+function doItem() {
+	$.ajax({
+		url				: "./TestServlet.do",
+		//	dataType	: h,
+		success: function(data) {
+			$("#result").val(data);
+		},
+		error: function(error) {
+			//	deferred.reject(error);
+		}
+	});
+}
 </script>
 </head>
 
 <body>
 	<script type="text/javascript" src="./js/cal.js"></script>
-	
 	<form id="cal">
 		<table border="0" cellspacing="5" bgcolor="#c6e2ff" id="table">
 			<tr>
