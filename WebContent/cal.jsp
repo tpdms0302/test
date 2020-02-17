@@ -9,12 +9,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 
-var result = document.getElementById('result');
- 
 $(function(){
+
+
 	$('#cal').submit(function(){
 		
-		var result = this.result;
+		var result =  $("#result").val();
 		window.open("cal2.jsp?result=" + result.value, "",
 		"width=500,height=500");
 		
@@ -67,7 +67,9 @@ $(function(){
 
 			<tr>
 				<td><input type="button" value=" 0 " onclick="val('0')"
-					class="btn" id="colbtn"> <input type="button" value=" . "
+					class="btn" id="colbtn">
+
+					<input type="button" value=" . "
 					onclick="val('.')" class="btn"> 
 					
 					
