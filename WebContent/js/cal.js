@@ -35,7 +35,7 @@ function val(num)
 {
 	var result = document.getElementById('result');
 	result.value = result.value + num;
-
+	
 }
 
 
