@@ -6,19 +6,28 @@
 <meta charset="UTF-8" >
 <title>계산기</title>
 <link rel="stylesheet" href="./css/cal.css" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
-window.onload=function(){
-	var temp = document.getElementById('result');
-	var result=temp.value;
 
-}
-
+var result = document.getElementById('result');
+ 
+$(function(){
+	$('#cal').submit(function(){
+		
+		var result = this.result;
+		window.open("cal2.jsp?result=" + result.value, "",
+		"width=500,height=500");
+		
+		return false;
+	});
+ });
 </script>
 </head>
 
 <body>
 	<script type="text/javascript" src="./js/cal.js"></script>
-	<form id="cal"  method="post" action="cal2.jsp">
+	
+	<form id="cal">
 		<table border="0" cellspacing="5" bgcolor="#c6e2ff" id="table">
 			<tr>
 				<td><input type="text" name="screen" id="result" size="48"
@@ -63,7 +72,7 @@ window.onload=function(){
 					
 					
 					<input type="submit"
-					value=" = "  onclick="calculate()"class="btn">
+					value=" = "  class="btn" id="btn_sub">
 					
 					</td>
 			</tr>
