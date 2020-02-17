@@ -20,7 +20,7 @@ function calculate() {
 function del() {
 	var result = document.getElementById('result');
 	result.value = "";
-
+ 
 }
 
 /* 숫자 하나를 삭제 해주는 함수 */
