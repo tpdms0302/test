@@ -27,53 +27,32 @@ public class TestServlet extends HttpServlet {
 		req.setCharacterEncoding("utf-8");
 		res.setCharacterEncoding("utf-8");
 
-		String result = req.getParameter("result");
-		String left = null;
-		String sep = null;
-		String right = null;
-		int result1;
-	
+		    int left = Integer.parseInt(req.getParameter("left"));
+	        String sep =req.getParameter("sep");
+	        int right = Integer.parseInt(req.getParameter("right"));
+	        int result;
+	   
+	        if(sep.equals("*")) {
+	            result=left*right;
 
-		String[] spl = { "*", "+", "-", "/" };
+	        }else if(sep.equals("+")) {
+	            result=left+right;
 
-		System.out.println("result:"+result);
+	        }else if(sep.equals("-")) {
+	            result=left-right;
 
-		for (int i = 0; i < spl.length; i++) {
-			int pos = result.indexOf(spl[i]);
+	        }else {
+	            result=left/right;
+	        }
 
-			if(pos != -1) {
-				left = result.substring(0,pos);
-				sep = result.substring(pos,pos+1);
-				right = result.substring(pos+1);
-				break;
 
-			}
 
-		}
+	        System.out.println("left:"+left+" sep:"+sep+" right"+right);
 
-		int left1=Integer.parseInt(left);
-		int right1=Integer.parseInt(right);
-		
-		  if(sep.equals("*")) {
-		    result1=left1*right1;
-		      
-		  }else if(sep.equals("+")) {
-			  result1=left1+right1;
-			  
-		  }else if(sep.equals("-")) {
-			  result1=left1-right1;
-			  
-		  }else {
-			  result1=left1/right1;
-		  }
-		
-		  
-		  
-		System.out.println("left:"+left+" sep:"+sep+" right"+right);
+	        PrintWriter writer = res.getWriter();
 
-		PrintWriter writer = res.getWriter();
+	        writer.println(result);
 
-		writer.println(result1);
 
 	}
 
